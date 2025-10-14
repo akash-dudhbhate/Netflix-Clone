@@ -39,10 +39,13 @@ const Home = () => {
       <div className="content">
         <TitleCards title="Popular on Netflix" category="popular" />
         <TitleCards title="Trending Now" category="trending" />
+        <TitleCards title="New Releases" category="newReleases" />
+        <TitleCards title="Action & Adventure" category="action" />
+        <TitleCards title="Fantasy Favorites" category="fantasy" />
+        <TitleCards title="Horror & Thrillers" category="horror" />
         <TitleCards title="Continue Watching" category="continue" />
       </div>
     </div>
   );
 };
-
 export default Home;
