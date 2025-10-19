@@ -1,0 +1,282 @@
+body {
+    margin: 0;
+    background: #141414;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  .tv-shows-container {
+    padding: 20px 0 60px 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  .tv-shows-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+    margin-bottom: 20px;
+  }
+
+  .tv-shows-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #e5e5e5;
+    margin: 0;
+  }
+
+  .carousel-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  /* Two carousels side-by-side */
+  .carousels-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    padding: 0 4%;
+    flex-wrap: wrap;
+  }
+
+  .carousel-control:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .container {
+    position: relative;
+    width: 200px;
+    margin: 100px auto 0 auto;
+    perspective: 1000px;
+    height: 300px;
+    transform: scale(0.7);
+  }
+  
+  .carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: rotate360 60s infinite forwards linear;
+  }
+  .carousel__face { 
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .carousel__face:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+  }
+  
+  .carousel__face::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to top, 
+      rgba(0,0,0,0.9) 0%, 
+      rgba(0,0,0,0.7) 30%, 
+      rgba(0,0,0,0.4) 50%, 
+      rgba(0,0,0,0.2) 70%, 
+      rgba(0,0,0,0) 100%
+    );
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carousel__face:hover::before {
+    background: linear-gradient(
+      to top, 
+      rgba(0,0,0,0.95) 0%, 
+      rgba(0,0,0,0.8) 40%, 
+      rgba(0,0,0,0.5) 60%, 
+      rgba(0,0,0,0.3) 80%, 
+      rgba(0,0,0,0.1) 100%
+    );
+  }
+  
+    .show-info {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease 0.1s;
+  }
+  
+  .carousel__face:hover .show-info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .show-meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .show-meta span {
+    position: relative;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .show-meta span:not(:last-child)::after {
+    content: '•';
+    margin-left: 10px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .show-title {
+    display: block;
+    margin: 15px 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .show-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .play-button, .info-button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  .play-button {
+    background-color: #e50914;
+    color: white;
+  }
+  
+  .play-button:hover {
+    background-color: #f40612;
+    transform: scale(1.05);
+  }
+  
+  .info-button {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: white;
+  }
+  
+  .info-button:hover {
+    background-color: rgba(109, 109, 110, 0.4);
+  }
+  
+  
+  .carousel__face:nth-child(1) {
+    transform: rotateY(  0deg) translateZ(280px); }
+  .carousel__face:nth-child(2) { 
+    background-image: url("https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+      transform: rotateY( 40deg) translateZ(280px); }
+  .carousel__face:nth-child(3) {
+    background-image: url("https://images.pexels.com/photos/808466/pexels-photo-808466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY( 80deg) translateZ(280px); }
+  .carousel__face:nth-child(4) {
+    background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(120deg) translateZ(280px); }
+  .carousel__face:nth-child(5) { 
+    background-image: url("https://images.pexels.com/photos/969679/pexels-photo-969679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+   transform: rotateY(160deg) translateZ(280px); }
+  .carousel__face:nth-child(6) { 
+    background-image: url("https://images.pexels.com/photos/1834400/pexels-photo-1834400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+   transform: rotateY(200deg) translateZ(280px); }
+  .carousel__face:nth-child(7) { 
+    background-image: url("https://images.pexels.com/photos/1415268/pexels-photo-1415268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+   transform: rotateY(240deg) translateZ(280px); }
+  .carousel__face:nth-child(8) {
+    background-image: url("https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(280deg) translateZ(280px); }
+  .carousel__face:nth-child(9) {
+    background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    transform: rotateY(320deg) translateZ(280px); }
+  
+  
+  
+  @keyframes rotate360 {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .carousel__face {
+      width: 250px;
+      height: 375px;
+    }
+  }
+  
+    @media (max-width: 768px) {
+    .tv-shows-header {
+      padding: 0 5%;
+    }
+    .carousels-row {
+      gap: 20px;
+    }
+    
+    .carousel__face {
+      width: 200px;
+      height: 300px;
+    }
+    .show-title {
+      font-size: 1.4rem;
+    }
+    
+    .show-meta {
+      font-size: 0.8rem;
+    }
+    
+    .play-button, .info-button {
+      padding: 6px 12px;
+      font-size: 0.9rem;
+    }
+  }
+  

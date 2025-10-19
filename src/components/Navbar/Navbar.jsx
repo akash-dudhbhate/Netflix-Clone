@@ -1,22 +1,26 @@
-import react from 'react'
-import './Navbar.css'
-import logo from '../../assets/logo.png'
-import search_icon from '../../assets/search_icon.png'
-import bell_icon from '../../assets/bell_icon.png'
-import profile_icon from '../../assets/profile_icon.png'
-import caret_icon from '../../assets/caret_icon.png'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+import logo from '../../assets/logo.png';
+import search_icon from '../../assets/search_icon.png';
+import bell_icon from '../../assets/bell_icon.png';
+import profile_icon from '../../assets/profile_icon.png';
+import caret_icon from '../../assets/caret_icon.png';
+
 const Navbar = () => {
     return (
         <div className='navbar'>
             <div className="navbar-left">
-                <img src={logo} alt="" />
+                <Link to="/">
+                    <img src={logo} alt="Netflix Logo" className='logo' />
+                </Link>
                 <ul>
-                    <li>Home</li>
-                    <li>TV Shows</li>
-                    <li>Movies</li>
-                    <li>New & Popular</li>
-                    <li>My List</li>
-                    <li>Brows by languages</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/tvshows">TVShows</Link></li>
+                    <li><Link to="/movies">Movies</Link></li>
+                    <li><Link to="/new">New & Popular</Link></li>
+                    <li><Link to="/mylist">My List</Link></li>
+                    <li><Link to="/browse">Browse by Languages</Link></li>
                 </ul>
             </div>
             <div className="navbar-right">
